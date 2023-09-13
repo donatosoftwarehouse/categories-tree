@@ -1,0 +1,12 @@
+.list-item {
+    margin: 1rem;
+
+    &:hover {
+        cursor: move;
+    }
+
+    .remove-btn {
+        margin-left: 1rem;
+        cursor: pointer;
+    }
+}
