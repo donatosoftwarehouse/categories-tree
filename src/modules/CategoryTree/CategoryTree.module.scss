@@ -1,3 +1,8 @@
+.list {
+    width: fit-content;
+    margin: 5rem;
+}
+
 .list-item {
     margin: 1rem;
 
@@ -6,7 +11,12 @@
     }
 
     .remove-btn {
+        opacity: .3;
         margin-left: 1rem;
         cursor: pointer;
+
+        &:hover {
+            opacity: 1;
+        }
     }
 }
