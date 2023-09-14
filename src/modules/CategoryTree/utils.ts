@@ -41,21 +41,15 @@ export function dragItem(
   for (let i = 0; i < items.length; i++) {
     const item = items[i];
     const areItemsOnSameLevel = draggableItem.level === level;
+    const doesItemBelongToSameParent = draggableItem.parent === item.id;
 
-    if (areItemsOnSameLevel && draggableItem.parent === item.id) {
-      const draggableItemIndex = item.children.findIndex(
-        (item) => item.id === draggableItem.id
-      );
+    if (areItemsOnSameLevel && doesItemBelongToSameParent) {
       const droppableItemIndex = item.children.findIndex(
         (item) => item.id === id
       );
-      const newIndex =
-        draggableItemIndex < droppableItemIndex
-          ? droppableItemIndex
-          : droppableItemIndex;
 
       removeItem(items, draggableItem.id);
-      item.children.splice(newIndex, 0, draggableItem);
+      item.children.splice(droppableItemIndex, 0, draggableItem);
     } else if (item.children && item.children.length) {
       dragItem(item.children, draggableItem, id, level, parent);
     }
