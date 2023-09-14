@@ -30,6 +30,8 @@ const CategoryTree: FC<Props> = ({ data }) => {
     const targetItem = event.target as HTMLDivElement;
     const { id, level, parent } = targetItem.dataset;
 
+    console.log('drag');
+
     if (draggableItem && id && level && parent) {
       dragItem([tree], draggableItem, id, Number(level), parent);
       setTree({ ...tree });
@@ -50,13 +52,9 @@ const CategoryTree: FC<Props> = ({ data }) => {
 
   const renderChildren = (item: itemProps) =>
     item.children &&
-    !!item.children.length && (
-      <ul onDragStart={handleDragStart} onDrop={handleDrop}>
-        {renderList(item.children)}
-      </ul>
-    );
+    !!item.children.length && <ul>{renderListItems(item.children)}</ul>;
 
-  const renderList = (items: itemProps[]) =>
+  const renderListItems = (items: itemProps[]) =>
     items.map((item) => (
       <li
         key={item.id}
@@ -73,16 +71,16 @@ const CategoryTree: FC<Props> = ({ data }) => {
     ));
 
   return (
-    <ul
-      onDragOver={handleDragOver}
-      onDrop={handleDrop}
-      className={styles['list']}
-    >
+    <ul className={styles['list']}>
       <li>
         <b>{tree.name}</b>
         {tree.children && !!tree.children.length && (
-          <ul onDragStart={handleDragStart} onDrop={handleDrop}>
-            {renderList(tree.children)}
+          <ul
+            onDragStart={handleDragStart}
+            onDragOver={handleDragOver}
+            onDrop={handleDrop}
+          >
+            {renderListItems(tree.children)}
           </ul>
         )}
       </li>
