@@ -30,8 +30,6 @@ const CategoryTree: FC<Props> = ({ data }) => {
     const targetItem = event.target as HTMLDivElement;
     const { id, level, parent } = targetItem.dataset;
 
-    console.log('drag');
-
     if (draggableItem && id && level && parent) {
       dragItem([tree], draggableItem, id, Number(level), parent);
       setTree({ ...tree });
