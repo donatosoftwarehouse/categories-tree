@@ -35,17 +35,6 @@
           "children": [
 
           ]
-        },
-        {
-          "id": "6",
-          "parent": "2",
-          "name": "Plansetes",
-          "level": 2,
-          "left": 9,
-          "right": 10,
-          "children": [
-
-          ]
         }
       ]
     },
@@ -53,17 +42,6 @@
       "id": "5",
       "parent": "1",
       "name": "Kameros",
-      "level": 1,
-      "left": 9,
-      "right": 10,
-      "children": [
-
-      ]
-    },
-    {
-      "id": "7",
-      "parent": "1",
-      "name": "Keptuves",
       "level": 1,
       "left": 9,
       "right": 10,
